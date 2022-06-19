@@ -1,0 +1,56 @@
+{
+    "name": "datlechin/flarum-bbcode-hide-content",
+    "description": "Gives users the ability to hide content from other users using BBCode.",
+    "keywords": [
+        "flarum",
+        "flarum extension"
+    ],
+    "type": "flarum-extension",
+    "license": "MIT",
+    "require": {
+        "flarum/core": "^1.2.0"
+    },
+    "authors": [
+        {
+            "name": "Ngo Quoc Dat",
+            "email": "datlechin@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Datlechin\\BBCodeHideContent\\": "src/"
+        }
+    },
+    "extra": {
+        "flarum-extension": {
+            "title": "BBCode Hide Content",
+            "category": "feature",
+            "icon": {
+                "name": "fas fa-eye-slash",
+                "color": "#fff",
+                "backgroundColor": "#D3241C"
+            }
+        },
+        "flarum-cli": {
+            "modules": {
+                "admin": true,
+                "forum": true,
+                "js": true,
+                "jsCommon": false,
+                "css": true,
+                "locale": true,
+                "gitConf": true,
+                "githubActions": true,
+                "prettier": true,
+                "typescript": false,
+                "bundlewatch": false,
+                "backendTesting": false,
+                "editorConfig": true,
+                "styleci": true
+            }
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
