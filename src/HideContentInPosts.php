@@ -27,6 +27,7 @@ class HideContentInPosts
         if ($actor->isGuest()) {
             $contentHtml = preg_replace('/\[LIKE\](.*?)\[\/LIKE\]/', $this->loginHtml(), $contentHtml);
             $contentHtml = preg_replace('/\[REPLY\](.*?)\[\/REPLY\]/', $this->loginHtml(), $contentHtml);
+            $contentHtml = preg_replace('/\[LOGIN\](.*?)\[\/LOGIN\]/', $this->loginHtml(), $contentHtml);
         }
 
         if ($actor->id === $post->user_id) {

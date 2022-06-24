@@ -11,6 +11,7 @@ A [Flarum](http://flarum.org) extension. Gives users the ability to hide content
 ## How to use
 
 - Add the following BBCode to your post:
+- `[LOGIN]content to hide[/LOGIN]`: hides the content from the non-logged in users
 - `[LIKE]content to hide[/LIKE]`: hides the content until the user likes the post
 - `[REPLY]content to hide[/REPLY]`: hides the content until the user replies to the post
 
@@ -26,7 +27,6 @@ composer require datlechin/flarum-bbcode-hide-content:"*"
 
 ```sh
 composer update datlechin/flarum-bbcode-hide-content:"*"
-php flarum migrate
 php flarum cache:clear
 ```
 
@@ -34,4 +34,4 @@ php flarum cache:clear
 
 - [Packagist](https://packagist.org/packages/datlechin/flarum-bbcode-hide-content)
 - [GitHub](https://github.com/datlechin/flarum-bbcode-hide-content)
-- [Discuss](https://discuss.flarum.org/d/PUT_DISCUSS_SLUG_HERE)
+- [Discuss](https://discuss.flarum.org/d/31068)
