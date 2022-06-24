@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /******/ (() => { // webpackBootstrap
 /******/ 	// runtime can't be in strict mode because a global variable is assign and maybe created.
 /******/ 	var __webpack_modules__ = ({
@@ -121,4 +122,7 @@ __webpack_require__.r(__webpack_exports__);
 module.exports = __webpack_exports__;
 /******/ })()
 ;
+=======
+(()=>{var e={n:t=>{var a=t&&t.__esModule?()=>t.default:()=>t;return e.d(a,{a}),a},d:(t,a)=>{for(var n in a)e.o(a,n)&&!e.o(t,n)&&Object.defineProperty(t,n,{enumerable:!0,get:a[n]})},o:(e,t)=>Object.prototype.hasOwnProperty.call(e,t),r:e=>{"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})}},t={};(()=>{"use strict";e.r(t);const a=flarum.core.compat["admin/app"];var n=e.n(a);n().initializers.add("datlechin/flarum-bbcode-hide-content",(function(){n().extensionData.for("datlechin-bbcode-hide-content").registerPermission({icon:"fas fa-eye-slash",label:n().translator.trans("datlechin-bbcode-hide-content.admin.permissions.bypass_like_label"),permission:"post.bypassLikeRequirement"},"view").registerPermission({icon:"fas fa-eye-slash",label:n().translator.trans("datlechin-bbcode-hide-content.admin.permissions.bypass_reply_label"),permission:"post.bypassReplyRequirement"},"view")}))})(),module.exports=t})();
+>>>>>>> 047d9c5c45db18b02aee0f3b33397c5c7399e192
 //# sourceMappingURL=admin.js.map
