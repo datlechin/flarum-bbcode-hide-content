@@ -11,8 +11,10 @@
 
 namespace Datlechin\BBCodeHideContent;
 
+use Datlechin\BBCodeHideContent\Access\UserPolicy;
 use Flarum\Api\Serializer\PostSerializer;
 use Flarum\Extend;
+use Flarum\User\User;
 
 return [
     (new Extend\Frontend('forum'))
