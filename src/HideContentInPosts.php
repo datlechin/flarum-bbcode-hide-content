@@ -23,7 +23,7 @@ class HideContentInPosts
         $discussion = $post->discussion;
         $actor = $serializer->getActor();
 
-        if (isset($attributes['htmlContent'])) {
+        if (isset($attributes['contentHtml'])) {
             $contentHtml = $attributes['contentHtml'];
 
             if ($actor->isGuest()) {
