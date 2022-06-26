@@ -25,9 +25,9 @@ class HideContentInPosts
         $contentHtml = $attributes['contentHtml'];
 
         if ($actor->isGuest()) {
-            $contentHtml = preg_replace('/\[LIKE\](.*?)\[\/LIKE\]/', $this->loginHtml(), $contentHtml);
-            $contentHtml = preg_replace('/\[REPLY\](.*?)\[\/REPLY\]/', $this->loginHtml(), $contentHtml);
-            $contentHtml = preg_replace('/\[LOGIN\](.*?)\[\/LOGIN\]/', $this->loginHtml(), $contentHtml);
+            $contentHtml = preg_replace('/\[LIKE\](.*?)\[\/LIKE\]/s', $this->loginHtml(), $contentHtml);
+            $contentHtml = preg_replace('/\[REPLY\](.*?)\[\/REPLY\]/s', $this->loginHtml(), $contentHtml);
+            $contentHtml = preg_replace('/\[LOGIN\](.*?)\[\/LOGIN\]/s', $this->loginHtml(), $contentHtml);
         }
 
         if ($actor->id === $post->user_id) {
@@ -38,9 +38,9 @@ class HideContentInPosts
             $liked = $actor->id && $post->likes()->where('user_id', $actor->id)->exists();
 
             if ($liked || $actor->hasPermission('post.bypassLikeRequirement')) {
-                $contentHtml = preg_replace('/\[LIKE\](.*?)\[\/LIKE\]/', '$1', $contentHtml);
+                $contentHtml = preg_replace('/\[LIKE\](.*?)\[\/LIKE\]/s', '$1', $contentHtml);
             } else {
-                $contentHtml = preg_replace('/\[LIKE\](.*?)\[\/LIKE\]/', $this->likeHtml(), $contentHtml);
+                $contentHtml = preg_replace('/\[LIKE\](.*?)\[\/LIKE\]/s', $this->likeHtml(), $contentHtml);
             }
         }
 
@@ -48,9 +48,9 @@ class HideContentInPosts
             $replied = $post->mentionedBy()->where('user_id', $actor->id)->exists();
 
             if ($replied || $actor->hasPermission('post.bypassReplyRequirement')) {
-                $contentHtml = preg_replace('/\[REPLY\](.*?)\[\/REPLY\]/', '$1', $contentHtml);
+                $contentHtml = preg_replace('/\[REPLY\](.*?)\[\/REPLY\]/s', '$1', $contentHtml);
             } else {
-                $contentHtml = preg_replace('/\[REPLY\](.*?)\[\/REPLY\]/', $this->replyHtml(), $contentHtml);
+                $contentHtml = preg_replace('/\[REPLY\](.*?)\[\/REPLY\]/s', $this->replyHtml(), $contentHtml);
             }
         }
 
