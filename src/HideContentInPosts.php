@@ -30,10 +30,10 @@ class HideContentInPosts
                 $contentHtml = preg_replace('/\[LIKE\](.*?)\[\/LIKE\]/s', $this->loginHtml(), $contentHtml);
                 $contentHtml = preg_replace('/\[REPLY\](.*?)\[\/REPLY\]/s', $this->loginHtml(), $contentHtml);
                 $contentHtml = preg_replace('/\[LOGIN\](.*?)\[\/LOGIN\]/s', $this->loginHtml(), $contentHtml);
-            }
-    
-            if ($actor->id === $post->user_id) {
-                $contentHtml = preg_replace('/\[(.*?)\]/', '', $contentHtml);
+            } elseif ($actor->id === $post->user_id) {
+                $contentHtml = preg_replace('/\[LIKE\](.*?)\[\/LIKE\]/s', '$1', $contentHtml);
+                $contentHtml = preg_replace('/\[REPLY\](.*?)\[\/REPLY\]/s', '$1', $contentHtml);
+                $contentHtml = preg_replace('/\[LOGIN\](.*?)\[\/LOGIN\]/s', '$1', $contentHtml);
             }
     
             if (preg_match('/\[LIKE\](.*?)\[\/LIKE\]/', $contentHtml)) {
