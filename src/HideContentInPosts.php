@@ -36,27 +36,27 @@ class HideContentInPosts
             }
 
             $contentHtml = preg_replace('/\[LOGIN\](.*?)\[\/LOGIN\]/s', '$1', $contentHtml);
-    
-            if (preg_match('/\[LIKE\](.*?)\[\/LIKE\]/', $contentHtml)) {
+
+            if (preg_match('/\[LIKE\](.*?)\[\/LIKE\]/s', $contentHtml)) {
                 $liked = $actor->id && $post->likes()->where('user_id', $actor->id)->exists();
-    
+
                 if ($liked || $actor->hasPermission('post.bypassLikeRequirement')) {
                     $contentHtml = preg_replace('/\[LIKE\](.*?)\[\/LIKE\]/s', '$1', $contentHtml);
                 } else {
                     $contentHtml = preg_replace('/\[LIKE\](.*?)\[\/LIKE\]/s', $this->likeHtml(), $contentHtml);
                 }
             }
-    
-            if (preg_match('/\[REPLY\](.*?)\[\/REPLY\]/', $contentHtml)) {
+
+            if (preg_match('/\[REPLY\](.*?)\[\/REPLY\]/s', $contentHtml)) {
                 $replied = $post->mentionedBy()->where('user_id', $actor->id)->exists();
-    
+
                 if ($replied || $actor->hasPermission('post.bypassReplyRequirement')) {
                     $contentHtml = preg_replace('/\[REPLY\](.*?)\[\/REPLY\]/s', '$1', $contentHtml);
                 } else {
                     $contentHtml = preg_replace('/\[REPLY\](.*?)\[\/REPLY\]/s', $this->replyHtml(), $contentHtml);
                 }
             }
-    
+
             $attributes['contentHtml'] = $contentHtml;
         }
 
