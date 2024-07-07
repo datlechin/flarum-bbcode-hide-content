@@ -1,0 +1,10 @@
+datlechin-bbcode-hide-content:
+  admin:
+    permissions:
+      bypass_like_label: 免除点赞请求
+      bypass_reply_label: 免除回复请求
+
+  forum:
+    must_be_logged_in: 你必须登录才能查看此内容
+    must_liked: 你必须点赞才能查看此内容
+    must_replied: 你必须回复才能查看此内容
