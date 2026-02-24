@@ -11,8 +11,8 @@
 
 namespace Datlechin\BBCodeHideContent;
 
-use Datlechin\BBCodeHideContent\Api\PostResourceFields;
-use Flarum\Api\Resource\PostResource;
+use Datlechin\BBCodeHideContent\Formatter\ConfigureBBCodeHideContent;
+use Datlechin\BBCodeHideContent\Formatter\RenderBBCodeHideContent;
 use Flarum\Extend;
 
 return [
@@ -24,6 +24,7 @@ return [
 
     new Extend\Locales(__DIR__ . '/locale'),
 
-    (new Extend\ApiResource(PostResource::class))
-        ->field('contentHtml', PostResourceFields::contentHtml(...)),
+    (new Extend\Formatter)
+        ->configure(ConfigureBBCodeHideContent::class)
+        ->render(RenderBBCodeHideContent::class),
 ];
