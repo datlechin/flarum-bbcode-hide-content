@@ -11,10 +11,9 @@
 
 namespace Datlechin\BBCodeHideContent;
 
-use Datlechin\BBCodeHideContent\Access\UserPolicy;
-use Flarum\Api\Serializer\PostSerializer;
+use Datlechin\BBCodeHideContent\Api\PostResourceFields;
+use Flarum\Api\Resource\PostResource;
 use Flarum\Extend;
-use Flarum\User\User;
 
 return [
     (new Extend\Frontend('forum'))
@@ -25,6 +24,6 @@ return [
 
     new Extend\Locales(__DIR__ . '/locale'),
 
-    (new Extend\ApiSerializer(PostSerializer::class))
-        ->attributes(HideContentInPosts::class),
+    (new Extend\ApiResource(PostResource::class))
+        ->field('contentHtml', PostResourceFields::contentHtml(...)),
 ];
